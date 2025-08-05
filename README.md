@@ -1,78 +1,73 @@
-# 🧠 Data Science Project: [Google Calendar Extractor]
+# 📆 Google Calendar Extractor
 
-## 📌 Overview
+## 🧠 Project Summary
 
-This project leverages modern data science techniques and tools to derive actionable insights from real-world data. The primary goal was to [create a repository to store past events from calendar so that we do not have to navigate through googles system to find information from years ago.], and deliver results that can guide informed decisions and continuous improvement.
+This project provides a Python-based tool that extracts **all past and future events** from a user's **Google Calendar** and stores them in a structured CSV file. It serves as a personal or organizational utility to track event history, measure productivity, analyze time allocation, or build time-based reports for billing or operations.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category             | Tools & Technologies                                     |
-|----------------------|-----------------------------------------------------------|
-| **Languages**         | Python, R, SQL                                            |
-| **Data Handling**     | Pandas, NumPy, Dask, openpyxl, pyodbc                    |
-| **Visualization**     | Matplotlib, Seaborn, Plotly, Tableau                     |
-| **Modeling**          | scikit-learn, XGBoost, StatsModels, GLM, Random Forests  |
-| **Data Storage**      | Excel, CSV, SQL Server, PostgreSQL                       |
-| **Automation & APIs** | Python Scripting, Google API, OS, Requests               |
-| **Environment**       | Jupyter, VSCode, Git, GitHub                             |
+| Category              | Tools & Technologies                                      |
+|-----------------------|-----------------------------------------------------------|
+| **Language**           | Python 3                                                  |
+| **API Integration**    | Google Calendar API, OAuth2 (via `google-auth`, `google-api-python-client`) |
+| **Data Handling**      | `pandas`, `datetime`, `os`, `csv`                         |
+| **Credential Storage** | `token.json`, `credentials.json`                         |
+| **Runtime Environment**| Jupyter Notebook, Python Script, CLI                     |
+| **Deployment**         | GitHub Repository (manual run, or CRON-compatible)       |
 
 ---
 
-## 🧪 Data Science Techniques
+## 🔍 Data Science Techniques
 
-- **Exploratory Data Analysis (EDA)**  
-  Conducted detailed univariate and multivariate analysis, identified trends, anomalies, and patterns in data using interactive visuals and statistical summaries.
+Even though this is a tool-focused project, it lays the foundation for several common data science workflows:
 
-- **Feature Engineering**  
-  Created meaningful variables such as tenure buckets, performance scores, and categorical encodings to improve model performance.
+- **Data Extraction (ETL)**  
+  Automated extraction of calendar data using authenticated API calls and storage in flat file format for downstream analysis.
 
-- **Data Cleaning & Imputation**  
-  Addressed missing values, duplicates, and outliers. Applied mean/median imputation, domain-specific correction, and standardization.
+- **Data Normalization**  
+  Timezone handling, string sanitization, and datetime parsing to ensure clean, analysis-ready data.
 
-- **Model Development & Evaluation**  
-  Trained various ML models including Logistic Regression, Random Forests, and Gradient Boosting. Evaluated using metrics like ROC-AUC, F1 Score, and Confusion Matrix.
+- **Pipeline Reusability**  
+  Modular script structure allows easy integration into larger ETL workflows or recurring cron jobs.
 
-- **Statistical Testing**  
-  Performed hypothesis testing (t-tests, ANOVA), multicollinearity checks (VIF), and significance testing to validate assumptions.
+- **Historical Tracking**  
+  Enables retrospective analysis of time spent across meetings, projects, clients, or departments.
 
-- **Workflow Automation**  
-  Used Python scripts and APIs to automate data extraction, transformation, and reporting workflows, reducing manual time and errors.
-
-- **Dashboarding & Reporting**  
-  Created executive dashboards to communicate findings to non-technical stakeholders, including key metrics, trends, and recommendations.
+- **Foundation for Analytics**  
+  Sets up a data layer that can be plugged into visualization tools (e.g., Power BI, Tableau) or further statistical modeling (e.g., clustering by meeting type, forecasting workload, etc.)
 
 ---
 
-## 📈 Project Impact
+## 📈 Impact
 
-- ✅ **Improved Decision-Making**  
-  Provided clear, data-driven insights to guide strategy and operations across departments.
+- ✅ **Centralized Event History**  
+  Eliminates the need to manually scroll through calendar UIs to access historical data.
 
-- 💰 **Cost Savings**  
-  Automated manual tasks, resulting in an estimated savings of $1,200 per year.
+- ⏱ **Time Audit & Optimization**  
+  Enables personal productivity review or organizational time-allocation tracking.
 
-- 🔍 **Operational Visibility**  
-  Surfaced key metrics and KPIs that were previously inaccessible or inconsistently tracked.
+- 📊 **Billing & Client Tracking**  
+  Helpful for consultants, analysts, or healthcare professionals needing evidence of time spent per client or category.
 
-- 🔄 **Repeatability**  
-  Designed modular scripts and pipelines that can be reused or adapted across future datasets or projects.
+- 🧩 **Plug-and-Play Integration**  
+  CSV output makes it easy to use with Excel, Python, R, BI tools, or Google Sheets for custom dashboards.
 
-- 📊 **Business Value**  
-  Enabled [Territory Managers] to [recall past events — reducing time, resources, slow data loading, and more.]
+- 🔄 **Repeatable & Scalable**  
+  Designed to be run at any interval with minimal setup — ideal for weekly/monthly analytics pipelines.
 
 ---
 
-## 📂 Project Structure
+## 📂 File Structure
 
 ```bash
-project-root/
+calendar-extractor/
 │
-├── data/               # Raw and processed datasets
-├── notebooks/          # EDA and model development
-├── scripts/            # ETL and automation scripts
-├── models/             # Trained models and artifacts
-├── output/             # Reports, charts, and final deliverables
-├── README.md           # Project overview and documentation
-└── requirements.txt    # Python dependencies
+├── calendar_extractor.py        # Main script: connects to API and writes CSV
+├── credentials.json             # OAuth 2.0 credentials (from Google Console)
+├── token.json                   # OAuth token (auto-generated after first run)
+├── events.csv                   # Output file with event history
+├── README.md                    # Documentation
+└── requirements.txt             # Python dependencies
+
