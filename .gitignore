@@ -1,1 +1,7 @@
+# Do not track sensitive or generated files
+credentials.json
+token.json
+calendar_events.csv
+__pycache__/
+*.pyc
 
